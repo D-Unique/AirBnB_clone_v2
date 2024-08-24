@@ -1,4 +1,4 @@
-#!/urs/bin/python3
+#!/usr/bin/python3
 
 """this module is a script that starts a Flask web application:
 and display 'Hello HBNB!' 'HBNB!',   'c %s'  and text variable, display
@@ -27,17 +27,11 @@ def Cp(text):
     return 'c %s' % sanitized_text
 
 
-@app.route("/python", strict_slashes=False)
-def python():
-    "returns `Python is cool`"
-    text = "is cool"
-    return "Python %s" % escape(text)
-
-
+@app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def py(text):
-    strip_text = text.replace('_', ' ')
-    return 'Python %s' % strip_text
+def pythoniscool(text='is cool'):
+    """display “Python ”, followed by the value of the text variable"""
+    return 'Python ' + text.replace('_', ' ')
 
 
 if __name__ == '__main__':
